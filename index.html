@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyPhotoBooth</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <!-- PAGE 1: BOOTH FRONT -->
+    <section id="homePage" class="page active home-page bg-home-page">
+      <div class="home-art-wrap">
+        <img class="home-bg-img" src="assets/home-bg.png" alt="Photobooth front drawing">
+        <div class="home-featured-strips" aria-hidden="true">
+          <img src="assets/featured1.png" alt="">
+          <img src="assets/featured2.png" alt="">
+          <img src="assets/featured3.png" alt="">
+          <img src="assets/featured4.png" alt="">
+          <img src="assets/featured5.png" alt="">
+        </div>
+
+        <button id="featuredBtn" class="featured-click-area" aria-label="featured strips">
+          <div class="featured-photo-strip strip-one"></div>
+          <div class="featured-photo-strip strip-two"></div>
+          <div class="featured-photo-strip strip-three"></div>
+          <div class="featured-photo-strip strip-four"></div>
+          <div class="featured-photo-strip strip-five"></div>
+        </button>
+
+        <button id="enterBtn" class="home-enter-hotspot">
+          enter <span>↪</span>
+        </button>
+
+        <p class="home-credit">made by @samreen.khosla10</p>
+      </div>
+    </section>
+
+    <!-- PAGE 2: FRAME SELECT -->
+    <section id="framePage" class="page frame-page exact-frame-page">
+      <div class="exact-frame-stage">
+        <img class="exact-lightbox" src="assets/lightbox3.svg" alt="top lightbox">
+
+        <div class="exact-screen-area">
+          <img class="exact-eye-level" src="assets/eyeLevel3.svg" alt="eye level">
+          <img class="exact-screen" src="assets/screen3.svg" alt="screen">
+
+          <button id="prevFrame" class="exact-arrow exact-left-arrow" aria-label="previous frame">‹</button>
+          <img id="previewStripImg" class="exact-strip-preview bw-preview" src="assets/whiteSample.png" alt="selected strip preview">
+          <button id="nextFrame" class="exact-arrow exact-right-arrow" aria-label="next frame">›</button>
+
+          <img class="exact-price" src="assets/priceSticker3.svg" alt="$0 4 pics">
+        </div>
+
+        <span class="exact-toggle-label bw-label">b&w</span>
+        <button id="toggleBtn" class="exact-toggle-button" aria-label="toggle black and white or color">
+          <img id="toggleImg" src="assets/toggleBW3.svg" alt="black and white toggle">
+        </button>
+        <span class="exact-toggle-label color-label">color</span>
+
+        <div class="exact-bottom-row">
+          <img class="exact-instructions" src="assets/instructions3.svg" alt="instructions">
+
+          <div class="exact-coin-wrap">
+            <img class="exact-coin-panel" src="assets/coinPanel3.svg" alt="coin panel">
+            <button id="selectFrameBtn" class="exact-green-hotspot" aria-label="select frame"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: TAKE / UPLOAD -->
+    <section id="photoPage" class="page photo-page exact-photo-page">
+      <div class="exact-photo-stage">
+        <img class="photo-lightbox" src="assets/photoLightbox.svg" alt="top lightbox">
+
+        <div class="photo-main-area">
+          <img class="photo-eye-level" src="assets/photoEyeLevel.svg" alt="eye level">
+
+          <div class="photo-screen-wrap">
+            <img class="photo-screen-img" src="assets/photoScreen.svg" alt="photo screen">
+
+            <div id="cameraBox" class="photo-camera-box hidden-camera">
+              <video id="video" autoplay playsinline muted></video>
+              <img id="uploadPreview" alt="uploaded preview">
+              <div id="countdown" class="countdown"></div>
+              <p id="cameraMsg" class="camera-msg"></p>
+            </div>
+
+            <div id="uploadGridBox" class="upload-grid-box hidden-upload-grid">
+              <label class="upload-slot">
+                <input class="multiUploadInput" type="file" accept="image/*" data-index="0">
+                <span class="plus">+</span>
+                <span>Picture 1</span>
+                <img class="upload-slot-preview" alt="">
+              </label>
+
+              <label class="upload-slot">
+                <input class="multiUploadInput" type="file" accept="image/*" data-index="1">
+                <span class="plus">+</span>
+                <span>Picture 2</span>
+                <img class="upload-slot-preview" alt="">
+              </label>
+
+              <label class="upload-slot">
+                <input class="multiUploadInput" type="file" accept="image/*" data-index="2">
+                <span class="plus">+</span>
+                <span>Picture 3</span>
+                <img class="upload-slot-preview" alt="">
+              </label>
+
+              <label class="upload-slot">
+                <input class="multiUploadInput" type="file" accept="image/*" data-index="3">
+                <span class="plus">+</span>
+                <span>Picture 4</span>
+                <img class="upload-slot-preview" alt="">
+              </label>
+            </div>
+
+            <div id="photoControls" class="photo-controls exact-photo-controls">
+              <button id="takePhotoBtn">take photo ♧</button>
+              <button id="openUploadGridBtn">upload photo ↥</button>
+            </div>
+          </div>
+
+          <img class="photo-price" src="assets/priceSticker3.svg" alt="$0 4 pics">
+        </div>
+
+        <div class="photo-toggle-area">
+          <span class="photo-toggle-label photo-bw-label">b&w</span>
+          <button id="photoToggleBtn" class="photo-toggle-button" aria-label="toggle black and white or color">
+            <img id="photoToggleImg" src="assets/photoToggleBW.svg" alt="black and white toggle">
+          </button>
+          <span class="photo-toggle-label photo-color-label">color</span>
+        </div>
+
+        <div class="photo-bottom-row">
+          <img class="photo-instructions" src="assets/photoInstructions.svg" alt="instructions">
+
+          <div class="photo-coin-wrap">
+            <p id="photoStartLabel" class="photo-start-label hidden-start-label">start</p>
+            <img class="photo-coin-panel" src="assets/coinPanel3.svg" alt="coin panel">
+            <button id="photoStartBtn" class="photo-red-button" aria-label="start photo session"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: DELIVERY MACHINE -->
+    <section id="deliveryPage" class="page delivery-page exact-delivery-page">
+      <div class="delivery-stage">
+        <div class="delivery-timer-wrap">
+          <img class="delivery-timer-img" src="assets/timer2.svg" alt="photos delivered timer">
+          <div class="delivery-timer-text">
+            PHOTOS<br>
+            DELIVERED<br>
+            HERE IN<br>
+            <span id="deliveryTimer">0</span> SECONDS
+          </div>
+        </div>
+
+        <div class="delivery-pickup-wrap">
+          <div class="delivery-strip-window">
+            <canvas id="fallingCanvas" width="300" height="1050"></canvas>
+          </div>
+          <img class="delivery-pickup-img" src="assets/pickup2.svg" alt="photo pickup machine">
+        </div>
+
+        <button id="pickupBtn" class="pickup-btn exact-pickup-btn">pick up →</button>
+      </div>
+    </section>
+
+    <!-- PAGE 5: FINAL PICKUP -->
+    <section id="pickupPage" class="page pickup-page exact-final-page">
+      <div class="final-stage">
+        <div class="final-strip-zone">
+          <canvas id="finalCanvas" width="300" height="1050"></canvas>
+        </div>
+
+        <img class="final-text-img" src="assets/text3.svg" alt="your photostrip">
+        <button id="cutBtn" class="final-scissors-btn" aria-label="cut photostrip into separate photos">
+          <img class="final-scissors-img" src="assets/scissors2.svg" alt="scissors">
+        </button>
+
+        <div class="final-buttons">
+          <button id="downloadBtn">↓ download</button>
+          <button id="shareBtn">↗ share</button>
+          <button id="printBtn">♧ print</button>
+          <button id="restartBtn">↺ restart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 6: INDIVIDUAL PHOTO DOWNLOADS -->
+    <section id="singleDownloadPage" class="page single-download-page exact-single-page">
+      <div class="single-stage">
+        <img class="download-click-img" src="assets/downloadClick1.svg" alt="click to download">
+
+        <div class="single-photo-stack">
+          <button class="single-photo-btn" data-photo-index="0" aria-label="download photo 1">
+            <canvas id="singleCanvas0" width="480" height="360"></canvas>
+          </button>
+          <button class="single-photo-btn" data-photo-index="1" aria-label="download photo 2">
+            <canvas id="singleCanvas1" width="480" height="360"></canvas>
+          </button>
+          <button class="single-photo-btn" data-photo-index="2" aria-label="download photo 3">
+            <canvas id="singleCanvas2" width="480" height="360"></canvas>
+          </button>
+          <button class="single-photo-btn" data-photo-index="3" aria-label="download photo 4">
+            <canvas id="singleCanvas3" width="480" height="360"></canvas>
+          </button>
+
+          <div class="single-final-buttons">
+            <button id="singleDownloadAllBtn">↓ download</button>
+            <button id="singleShareBtn">↗ share</button>
+            <button id="singlePrintBtn">♧ print</button>
+            <button id="singleRestartBtn">↺ restart</button>
+          </div>
+        </div>
+
+        <button id="backToStripBtn" class="back-to-strip-btn" aria-label="back to photostrip">
+          <img class="back-img" src="assets/back2.svg" alt="back">
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

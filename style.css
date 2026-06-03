@@ -1,0 +1,3144 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Inter:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600&display=swap');
+
+:root {
+  --ink: #0d0d0d;
+  --navy: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: Inter, Arial, sans-serif;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 35px 20px;
+}
+
+.page {
+  display: none;
+  position: relative;
+  width: min(1000px, 96vw);
+  min-height: 720px;
+}
+
+.page.active {
+  display: block;
+}
+
+/* PAGE 1 */
+.booth-sign {
+  width: 430px;
+  height: 90px;
+  border: 4px solid var(--ink);
+  outline: 3px solid var(--ink);
+  outline-offset: 10px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  font-size: 44px;
+  letter-spacing: 8px;
+  transform: rotate(.1deg);
+}
+
+.booth {
+  width: 670px;
+  height: 455px;
+  margin: 0 auto;
+  border: 4px solid var(--ink);
+  display: grid;
+  grid-template-columns: 1.45fr .95fr .65fr;
+  position: relative;
+  background: #fff;
+  transform: rotate(.12deg);
+}
+
+.booth:before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: -2px;
+  width: calc(100% + 4px);
+  border-top: 4px solid var(--ink);
+}
+
+.left-wall, .curtain-wall, .mirror-wall {
+  height: 100%;
+  position: relative;
+}
+
+.left-wall, .curtain-wall {
+  border-right: 4px solid var(--ink);
+}
+
+.featured-box {
+  width: 245px;
+  height: 125px;
+  border: 4px solid var(--ink);
+  margin: 65px auto 0;
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.mini-strip-row {
+  display: grid;
+  grid-template-columns: repeat(5, 28px);
+  gap: 11px;
+  transform: rotate(-1deg);
+}
+
+.mini-strip-row div {
+  height: 78px;
+  border: 1px solid #222;
+  background:
+    radial-gradient(circle at 50% 16%, #d8d8d8 0 11%, transparent 12%),
+    linear-gradient(150deg, #111 0 20%, #565656 48%, #1e1e1e 52%, #9a9a9a 76%, #181818 100%);
+  box-shadow: inset 0 0 10px rgba(255,255,255,.12);
+}
+
+.mini-strip-row div:first-child {
+  background:
+    radial-gradient(circle at 50% 16%, #906c61 0 11%, transparent 12%),
+    linear-gradient(150deg, #d49c8e 0 20%, #b66b70 48%, #f2c4b6 52%, #5a3938 100%);
+}
+
+.featured-text {
+  position: absolute;
+  right: 33px;
+  top: 214px;
+  font-family: "Patrick Hand", cursive;
+  font-size: 30px;
+  line-height: .76;
+  margin: 0;
+  transform: rotate(1.5deg);
+  z-index: 1;
+}
+
+.featured-text:before {
+  content: "â†±";
+  position: absolute;
+  top: -58px;
+  left: 78px;
+  font-size: 54px;
+  transform: rotate(12deg);
+}
+
+.tiny-printer {
+  position: absolute;
+  left: 108px;
+  top: 268px;
+  width: 43px;
+  height: 92px;
+  border: 3px solid var(--ink);
+}
+
+.tiny-printer:before {
+  content: "";
+  position: absolute;
+  top: -32px;
+  left: -2px;
+  width: 42px;
+  height: 26px;
+  border: 3px solid var(--ink);
+  border-radius: 4px;
+}
+
+.tiny-printer span {
+  display: block;
+  width: 25px;
+  height: 60px;
+  border: 3px solid var(--ink);
+  margin: 20px auto 0;
+}
+
+.curtain-lines {
+  width: 150px;
+  height: 300px;
+  margin: 30px auto 0;
+  border-bottom: 4px solid var(--ink);
+  border-radius: 0 0 58px 58px;
+  background: repeating-linear-gradient(90deg, transparent 0 31px, rgba(0,0,0,.05) 31px 36px);
+  position: relative;
+  z-index: 1;
+}
+
+.curtain-lines:before,
+.curtain-lines:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 315px;
+  border-left: 4px solid var(--ink);
+  border-radius: 50%;
+}
+
+.curtain-lines:before { left: 22px; transform: rotate(-4deg); }
+.curtain-lines:after { right: 26px; transform: rotate(5deg); }
+
+.enter-btn {
+  width: 170px;
+  height: 72px;
+  position: absolute;
+  top: 185px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 3px solid #253044;
+  background: #f3f6fb;
+  color: #1c2430;
+  font-size: 22px;
+  z-index: 5;
+}
+
+.enter-btn span {
+  font-size: 30px;
+}
+
+.stool {
+  width: 130px;
+  height: 33px;
+  border: 4px solid var(--ink);
+  border-radius: 50%;
+  background: #fff;
+  margin: -8px auto 0;
+  position: relative;
+  z-index: 3;
+}
+
+.stool:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  width: 4px;
+  height: 95px;
+  background: var(--ink);
+}
+
+.stool:after {
+  content: "";
+  position: absolute;
+  left: 23px;
+  top: 110px;
+  width: 78px;
+  height: 26px;
+  border: 4px solid var(--ink);
+  border-radius: 50% 50% 0 0;
+  border-bottom: 0;
+}
+
+.mirror {
+  width: 90px;
+  height: 165px;
+  border: 4px solid var(--ink);
+  margin: 65px auto 0;
+  position: relative;
+}
+
+.mirror:before, .mirror:after {
+  content: "";
+  width: 32px;
+  border-top: 3px solid var(--ink);
+  position: absolute;
+  transform: rotate(-28deg);
+}
+
+.mirror:before { top: 25px; left: 18px; }
+.mirror:after { bottom: 26px; right: 14px; }
+
+.credit {
+  position: absolute;
+  left: 24px;
+  bottom: 8px;
+  margin: 0;
+  color: #5d6574;
+  font-size: 13px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 14px;
+}
+
+.footer-links a {
+  color: #8b95a8;
+  text-decoration: underline;
+}
+
+/* SHARED FRAME PAGES */
+.top-empty-sign {
+  width: 520px;
+  height: 110px;
+  border: 4px solid var(--ink);
+  outline: 13px solid transparent;
+  box-shadow: 0 0 0 17px var(--ink);
+  margin: 25px auto 62px;
+  transform: rotate(.1deg);
+}
+
+.main-select-area {
+  width: 520px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.eye-label {
+  position: absolute;
+  left: -68px;
+  top: 52px;
+  font-family: "Patrick Hand", cursive;
+  font-size: 20px;
+  line-height: .85;
+  margin: 0;
+}
+
+.eye-label span {
+  position: absolute;
+  top: 2px;
+  left: 26px;
+  font-size: 46px;
+}
+
+.screen-box,
+.photo-screen {
+  width: 260px;
+  height: 290px;
+  border: 4px solid var(--ink);
+  outline: 15px solid #fff;
+  box-shadow: 0 0 0 19px var(--ink);
+  background: #fff;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.price-circle {
+  width: 62px;
+  height: 62px;
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-family: "Patrick Hand", cursive;
+  font-size: 20px;
+  line-height: .9;
+  position: absolute;
+  top: 183px;
+  right: 25px;
+}
+
+.frame-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  font-size: 54px;
+  color: #1f2a3a;
+  line-height: 1;
+}
+
+.frame-arrow.left { left: 26px; }
+.frame-arrow.right { right: 26px; }
+
+.strip-preview {
+  width: 78px;
+  min-height: 225px;
+  position: relative;
+  transform: rotate(-1.5deg);
+  filter: drop-shadow(9px 10px 10px rgba(0,0,0,.18));
+}
+
+.strip-preview.bw {
+  filter: grayscale(1) drop-shadow(9px 10px 10px rgba(0,0,0,.18));
+}
+
+.strip {
+  width: 78px;
+  min-height: 225px;
+  padding: 6px;
+  background: #888;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.photo-slot {
+  height: 48px;
+  background: #858585;
+  border: 1px solid rgba(255,255,255,.55);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.photo-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.strip.pink {
+  background: #ffd3dc;
+}
+
+.strip.pink .photo-slot {
+  border: 0;
+  background: #777;
+  clip-path: polygon(50% 98%, 8% 63%, 0% 32%, 10% 7%, 34% 0%, 50% 19%, 66% 0%, 90% 7%, 100% 32%, 92% 63%);
+}
+
+.strip.pink:before {
+  content: "âœ¦ à±¨à§Ž â™¡ âœ‰\A       âœ§\Aâ™¡          âœ¦\A    à±¨à§Ž\A  â™¡ âœ¦    â™¡\A       âœ§\Aâ™¡  à±¨à§Ž";
+  white-space: pre;
+  color: #b74359;
+  font-family: "Patrick Hand", cursive;
+  font-size: 13px;
+  line-height: 1.35;
+  position: absolute;
+  inset: 4px;
+  z-index: 1;
+}
+
+.strip.tinyhearts:after {
+  content: "â™¡      â™¡\A   âœ¶     â™¡\Aà±¨à§Ž       â™¡\A  â™¡\A      à±¨à§Ž\Aâ™¡       âœ¶";
+  white-space: pre;
+  color: #d34b35;
+  font-family: "Patrick Hand", cursive;
+  font-size: 13px;
+  line-height: 1.5;
+  position: absolute;
+  inset: 5px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.strip.texty {
+  background: #ffd9df;
+  gap: 8px;
+}
+
+.strip.texty .photo-slot:before {
+  content: "HAPPY VALENTINE'S DAY";
+  position: absolute;
+  top: -1px;
+  left: 2px;
+  font-size: 5px;
+  color: #6e6e6e;
+  z-index: 4;
+}
+
+.strip.brand {
+  background: #dedede;
+}
+
+.strip.brand .photo-slot:before {
+  content: "MYSKETCHBOOTH";
+  position: absolute;
+  top: -1px;
+  left: 13px;
+  font-size: 5px;
+  color: #555;
+  z-index: 4;
+}
+
+.strip.bold {
+  padding: 0;
+  gap: 0;
+  background: transparent;
+  border: 4px solid #000;
+}
+
+.strip.bold .photo-slot {
+  height: 56px;
+  border: 2px solid #000;
+  border-left: 0;
+  border-right: 0;
+  background: #888;
+}
+
+.toggle-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 200px;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+.switch {
+  width: 45px;
+  height: 17px;
+  position: relative;
+  display: inline-block;
+}
+
+.switch input { display: none; }
+
+.switch span {
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+}
+
+.switch span:before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border: 3px solid var(--ink);
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: -4px;
+  left: -3px;
+  transition: .2s;
+}
+
+.switch input:checked + span:before {
+  transform: translateX(27px);
+}
+
+.instructions-and-select {
+  width: 520px;
+  margin: 40px auto 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.instructions {
+  width: 410px;
+  min-height: 118px;
+  border: 4px solid var(--ink);
+  border-radius: 22px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: hidden;
+}
+
+.instructions div {
+  padding: 12px 12px 8px;
+  display: flex;
+  gap: 10px;
+}
+
+.instructions div:not(:last-child) {
+  border-right: 4px solid var(--ink);
+}
+
+.instructions b {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.instructions p {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.08;
+}
+
+.select-machine {
+  width: 72px;
+  height: 165px;
+  border: 4px solid var(--ink);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.select-machine p {
+  position: absolute;
+  top: -32px;
+  left: 8px;
+  margin: 0;
+  font-size: 16px;
+}
+
+.green-button,
+.red-button {
+  width: 18px;
+  height: 18px;
+  border: 3px solid #4b5960;
+  border-radius: 50%;
+  margin-top: 18px;
+}
+
+.green-button { background: #78d39b; }
+.red-button { background: #ff7f8b; }
+
+.slot {
+  width: 8px;
+  height: 35px;
+  border: 3px solid var(--ink);
+}
+
+.small-box {
+  width: 38px;
+  height: 42px;
+  border: 3px solid var(--ink);
+  margin-top: 2px;
+}
+
+/* PHOTO PAGE */
+.photo-screen {
+  padding: 52px 32px 20px;
+  display: block;
+}
+
+.camera-box {
+  width: 160px;
+  height: 110px;
+  margin: 0 auto 18px;
+  border: 3px solid #1a2433;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+video,
+#uploadPreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+video.show,
+#uploadPreview.show {
+  display: block;
+}
+
+.countdown {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  text-shadow: 0 2px 8px #000;
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.camera-msg {
+  font-size: 11px;
+  padding: 8px;
+  text-align: center;
+  color: var(--navy);
+}
+
+.photo-controls {
+  display: grid;
+  gap: 16px;
+}
+
+.photo-controls button,
+.photo-controls label {
+  width: 160px;
+  height: 40px;
+  border: 3px solid #1a2433;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  background: #fff;
+}
+
+.photo-controls label {
+  background: #111827;
+  color: #fff;
+}
+
+.photo-controls input {
+  display: none;
+}
+
+/* PAGE 4 DELIVERY */
+.delivery-page {
+  min-height: 850px;
+}
+
+.delivery-wrap {
+  width: 330px;
+  margin: 0 auto;
+  padding-top: 0;
+}
+
+.delivery-sign {
+  width: 250px;
+  height: 235px;
+  border: 4px solid var(--ink);
+  margin: 0 auto 28px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  transform: rotate(-.2deg);
+  background: #fff;
+}
+
+.delivery-sign i {
+  width: 20px;
+  height: 20px;
+  border: 4px solid var(--ink);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.delivery-sign i:nth-child(1) { top: 14px; left: 16px; }
+.delivery-sign i:nth-child(2) { top: 14px; right: 16px; }
+.delivery-sign i:nth-child(3) { bottom: 14px; left: 16px; }
+.delivery-sign i:nth-child(4) { bottom: 14px; right: 16px; }
+
+.delivery-sign h1 {
+  margin: 12px 0 0;
+  text-align: center;
+  color: var(--navy);
+  font-size: 24px;
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+.delivery-sign p {
+  position: absolute;
+  bottom: 28px;
+  margin: 0;
+  font-size: 42px;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.delivery-machine {
+  width: 250px;
+  height: 600px;
+  border: 4px solid var(--ink);
+  margin: 0 auto;
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+}
+
+.window {
+  position: absolute;
+  top: 42px;
+  left: 38px;
+  width: 174px;
+  height: 185px;
+  border: 4px solid var(--ink);
+  overflow: hidden;
+  background: #fff;
+}
+
+.window canvas {
+  width: 85px;
+  height: auto;
+  position: absolute;
+  left: 45px;
+  top: -260px;
+  transform: rotate(-2deg);
+  transition: top 3s ease-in-out;
+}
+
+.window canvas.slide-down {
+  top: 65px;
+}
+
+.doors {
+  position: absolute;
+  left: 38px;
+  right: 38px;
+  bottom: 40px;
+  height: 390px;
+  border: 4px solid var(--ink);
+  border-top: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.doors:before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: -4px;
+  width: calc(100% + 8px);
+  border-top: 4px solid var(--ink);
+}
+
+.doors div:first-child {
+  border-right: 4px solid var(--ink);
+}
+
+.pickup-btn {
+  position: fixed;
+  left: 0;
+  bottom: 25px;
+  width: 100%;
+  height: 55px;
+  background: #f7f8fa;
+  border: 4px solid #1f2937;
+  color: #1f2937;
+  font-size: 20px;
+}
+
+/* PAGE 5 FINAL */
+.pickup-page {
+  min-height: 720px;
+}
+
+.final-stage {
+  width: 600px;
+  height: 650px;
+  margin: 30px auto 0;
+  position: relative;
+}
+
+.final-strip-zone {
+  position: absolute;
+  top: 80px;
+  left: 235px;
+}
+
+#finalCanvas {
+  width: 115px;
+  height: auto;
+  display: block;
+}
+
+.photostrip-note {
+  position: absolute;
+  top: 55px;
+  left: 360px;
+  margin: 0;
+  font-family: "Patrick Hand", cursive;
+  font-size: 30px;
+  line-height: .7;
+  transform: rotate(-2deg);
+}
+
+.note-arrow {
+  position: absolute;
+  top: 106px;
+  left: 345px;
+  font-family: "Patrick Hand", cursive;
+  font-size: 48px;
+  margin: 0;
+  transform: rotate(-8deg);
+}
+
+.tag-area {
+  position: absolute;
+  left: 105px;
+  top: 425px;
+  font-family: "Patrick Hand", cursive;
+}
+
+.tag-area p {
+  margin: 0;
+  font-size: 19px;
+  line-height: .85;
+}
+
+.tag-area span {
+  display: block;
+  font-size: 35px;
+  line-height: .8;
+}
+
+.scissors {
+  position: absolute;
+  top: 455px;
+  right: 110px;
+  font-size: 80px;
+  transform: rotate(-28deg);
+}
+
+.final-buttons {
+  position: absolute;
+  bottom: 10px;
+  left: 120px;
+  display: flex;
+  gap: 8px;
+}
+
+.final-buttons button {
+  border: 3px solid #1f2937;
+  background: #fff;
+  height: 30px;
+  padding: 0 16px;
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .booth {
+    width: 94vw;
+    grid-template-columns: 1fr .9fr .5fr;
+  }
+
+  .booth-sign,
+  .top-empty-sign {
+    width: 72vw;
+    font-size: 34px;
+    letter-spacing: 4px;
+  }
+
+  .main-select-area,
+  .instructions-and-select {
+    width: 92vw;
+  }
+
+  .instructions {
+    width: 72vw;
+  }
+
+  .price-circle {
+    right: -4px;
+  }
+
+  .final-stage {
+    width: 96vw;
+  }
+
+  .final-strip-zone {
+    left: 42%;
+  }
+
+  .photostrip-note {
+    left: 63%;
+  }
+
+  .note-arrow {
+    left: 60%;
+  }
+
+  .tag-area {
+    left: 8%;
+  }
+
+  .scissors {
+    right: 8%;
+  }
+
+  .final-buttons {
+    left: 5%;
+    flex-wrap: wrap;
+  }
+}
+
+
+/* BACKGROUND IMAGE HOME PAGE VERSION */
+.bg-home-page {
+  width: min(1080px, 96vw);
+  min-height: auto;
+}
+
+.home-art-wrap {
+  position: relative;
+  width: min(980px, 96vw);
+  aspect-ratio: 1254 / 1062;
+  margin: 0 auto;
+}
+
+.home-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Transparent clickable featured-board area + photo overlays */
+.featured-click-area {
+  position: absolute;
+  left: 17.2%;
+  top: 26.4%;
+  width: 28.8%;
+  height: 18.1%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: default;
+}
+
+.featured-photo-strip {
+  position: absolute;
+  top: 17%;
+  width: 8.8%;
+  height: 62%;
+  border: 1px solid rgba(0,0,0,.45);
+  box-shadow: inset 0 0 12px rgba(255,255,255,.25);
+}
+
+.strip-one {
+  left: 22%;
+  transform: rotate(-4deg);
+  background:
+    radial-gradient(circle at 50% 13%, #a06c61 0 10%, transparent 11%),
+    linear-gradient(150deg, #d19a8d, #b96d70 40%, #f3c5b7 58%, #573837);
+}
+
+.strip-two {
+  left: 38%;
+  transform: rotate(2deg);
+  background:
+    radial-gradient(circle at 50% 13%, #ddd 0 10%, transparent 11%),
+    linear-gradient(150deg, #111, #6f6f6f 45%, #222 52%, #aaa);
+}
+
+.strip-three {
+  left: 54%;
+  transform: rotate(-2deg);
+  background:
+    radial-gradient(circle at 50% 13%, #ccc 0 10%, transparent 11%),
+    linear-gradient(150deg, #050505, #333 44%, #919191 62%, #1b1b1b);
+}
+
+.strip-four {
+  left: 70%;
+  transform: rotate(3deg);
+  background:
+    radial-gradient(circle at 50% 13%, #eee 0 10%, transparent 11%),
+    linear-gradient(150deg, #202020, #aaa 40%, #111 60%, #e2e2e2);
+}
+
+.strip-five {
+  left: 86%;
+  transform: rotate(-3deg);
+  background:
+    radial-gradient(circle at 50% 13%, #ddd 0 10%, transparent 11%),
+    linear-gradient(150deg, #101010, #555 42%, #0a0a0a 60%, #c9c9c9);
+}
+
+.home-enter-hotspot {
+  position: absolute;
+  left: 63.1%;
+  top: 39.6%;
+  transform: translate(-50%, -50%);
+  width: 24.5%;
+  height: 9.7%;
+  border: 3px solid #253044;
+  background: #f3f6fb;
+  color: #1c2430;
+  font-size: clamp(20px, 3vw, 42px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .35em;
+  z-index: 5;
+}
+
+.home-enter-hotspot span {
+  font-size: 1.25em;
+  line-height: 1;
+}
+
+.home-enter-hotspot:hover {
+  background: #111827;
+  color: white;
+}
+
+.home-credit {
+  position: absolute;
+  left: 2.4%;
+  bottom: 12.7%;
+  margin: 0;
+  color: #626b78;
+  font-size: clamp(8px, 1.2vw, 14px);
+}
+
+.home-footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 8px;
+}
+
+.home-footer-links a {
+  color: #8b95a8;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+@media (max-width: 700px) {
+  .home-enter-hotspot {
+    border-width: 2px;
+  }
+
+  .home-footer-links {
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .home-footer-links a {
+    font-size: 12px;
+  }
+}
+
+
+/* FINAL HOME CLEANUP OVERRIDES */
+.bg-home-page {
+  width: 100%;
+  min-height: auto;
+}
+
+.home-art-wrap {
+  position: relative;
+  width: min(760px, 92vw);
+  aspect-ratio: 1254 / 1062;
+  margin: 0 auto;
+}
+
+/* remove the ugly sample strips completely */
+.featured-click-area,
+.featured-photo-strip {
+  display: none !important;
+}
+
+/* smaller, lower, cleaner enter button */
+.home-enter-hotspot {
+  left: 64.3% !important;
+  top: 53.2% !important;
+  width: 19.5% !important;
+  height: 7.4% !important;
+  background: #ffffff !important;
+  color: #1f2937 !important;
+  border: 2.5px solid #1f2937 !important;
+  font-family: "Quicksand", "Nunito", "Inter", Arial, sans-serif !important;
+  font-size: clamp(15px, 2.15vw, 27px) !important;
+  font-weight: 500 !important;
+  letter-spacing: .2px;
+  gap: .25em !important;
+}
+
+.home-enter-hotspot span {
+  font-size: 1.05em !important;
+}
+
+.home-enter-hotspot:hover {
+  background: #1f2937 !important;
+  color: #ffffff !important;
+}
+
+/* place credit inside the booth bottom-left, not halfway off-screen */
+.home-credit {
+  left: 10.2% !important;
+  bottom: 8.1% !important;
+  color: #69717d !important;
+  font-size: clamp(7px, 1vw, 12px) !important;
+  font-family: "Inter", Arial, sans-serif !important;
+  white-space: nowrap;
+}
+
+/* footer closer and less scroll */
+.home-footer-links {
+  margin-top: 6px !important;
+  gap: 22px !important;
+}
+
+.home-footer-links a {
+  font-size: 12px !important;
+}
+
+@media (max-height: 760px) {
+  .app {
+    padding-top: 18px;
+    padding-bottom: 12px;
+    align-items: start;
+  }
+
+  .home-art-wrap {
+    width: min(720px, 88vw);
+  }
+}
+
+
+/* EXACT FRAME SELECTION PAGE USING UPLOADED ASSETS */
+.exact-frame-page {
+  width: 100%;
+  min-height: 760px;
+}
+
+.exact-frame-stage {
+  position: relative;
+  width: min(760px, 92vw);
+  height: 720px;
+  margin: 0 auto;
+}
+
+.exact-lightbox {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  width: 520px;
+  max-width: 76vw;
+  transform: translateX(-50%);
+  user-select: none;
+  pointer-events: none;
+}
+
+.exact-screen-area {
+  position: absolute;
+  top: 190px;
+  left: 50%;
+  width: 430px;
+  height: 310px;
+  transform: translateX(-50%);
+}
+
+.exact-screen {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 285px;
+  transform: translateX(-50%);
+  user-select: none;
+  pointer-events: none;
+}
+
+.exact-eye-level {
+  position: absolute;
+  top: 62px;
+  left: -8px;
+  width: 92px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.exact-price {
+  position: absolute;
+  top: 183px;
+  right: 1px;
+  width: 72px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.exact-strip-preview {
+  position: absolute;
+  top: 37px;
+  left: 50%;
+  width: 72px;
+  height: 214px;
+  object-fit: cover;
+  transform: translateX(-50%) rotate(-1.8deg);
+  filter: drop-shadow(10px 10px 11px rgba(0, 0, 0, 0.18));
+  user-select: none;
+  pointer-events: none;
+}
+
+.exact-strip-preview.bw-preview {
+  filter: grayscale(1) drop-shadow(10px 10px 11px rgba(0, 0, 0, 0.18));
+}
+
+.exact-arrow {
+  position: absolute;
+  top: 124px;
+  border: none;
+  background: transparent;
+  color: #1f2937;
+  font-size: 46px;
+  line-height: 1;
+  padding: 0;
+  z-index: 5;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+}
+
+.exact-left-arrow {
+  left: 112px;
+}
+
+.exact-right-arrow {
+  right: 112px;
+}
+
+.exact-arrow:hover {
+  transform: scale(1.08);
+}
+
+.exact-toggle-button {
+  position: absolute;
+  top: 507px;
+  left: 50%;
+  width: 150px;
+  height: 34px;
+  transform: translateX(-50%);
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.exact-toggle-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.exact-bottom-row {
+  position: absolute;
+  top: 575px;
+  left: 50%;
+  width: 520px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  transform: translateX(-50%);
+}
+
+.exact-instructions {
+  width: 405px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.exact-coin-wrap {
+  position: relative;
+  width: 76px;
+}
+
+.exact-coin-panel {
+  width: 76px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.exact-green-hotspot {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  transform: translateX(-50%);
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.exact-green-hotspot:hover {
+  background: rgba(0, 255, 80, 0.16);
+}
+
+@media (max-width: 700px) {
+  .exact-frame-stage {
+    width: 96vw;
+    height: 690px;
+  }
+
+  .exact-lightbox {
+    width: 470px;
+  }
+
+  .exact-screen-area {
+    top: 175px;
+    width: 390px;
+  }
+
+  .exact-screen {
+    width: 260px;
+  }
+
+  .exact-eye-level {
+    left: 0;
+    width: 78px;
+  }
+
+  .exact-price {
+    right: 8px;
+    width: 62px;
+  }
+
+  .exact-strip-preview {
+    width: 64px;
+    height: 195px;
+  }
+
+  .exact-left-arrow {
+    left: 105px;
+  }
+
+  .exact-right-arrow {
+    right: 105px;
+  }
+
+  .exact-toggle-button {
+    top: 485px;
+  }
+
+  .exact-bottom-row {
+    top: 548px;
+    width: 94vw;
+    gap: 16px;
+  }
+
+  .exact-instructions {
+    width: 330px;
+  }
+
+  .exact-coin-wrap,
+  .exact-coin-panel {
+    width: 62px;
+  }
+}
+
+
+/* FRAME PAGE FIXES: full strips, spacing, labels, visible green button */
+.exact-frame-stage {
+  width: min(720px, 92vw) !important;
+  height: 735px !important;
+  margin: 0 auto !important;
+}
+
+.exact-lightbox {
+  top: 18px !important;
+  width: 500px !important;
+  max-width: 76vw !important;
+}
+
+.exact-screen-area {
+  top: 182px !important;
+  width: 500px !important;
+  height: 365px !important;
+}
+
+.exact-screen {
+  width: 292px !important;
+}
+
+/* Move eye-level left so it does not touch the screen */
+.exact-eye-level {
+  top: 72px !important;
+  left: 18px !important;
+  width: 82px !important;
+}
+
+/* Move sticker a little right and keep it like the reference */
+.exact-price {
+  top: 176px !important;
+  right: 45px !important;
+  width: 68px !important;
+}
+
+/* Show the entire strip sample, not cropped */
+.exact-strip-preview {
+  top: 65px !important;
+  left: 50% !important;
+  width: 58px !important;
+  height: 232px !important;
+  object-fit: contain !important;
+  transform: translateX(-50%) rotate(-1.5deg) !important;
+  filter: drop-shadow(10px 10px 11px rgba(0, 0, 0, 0.18)) !important;
+}
+
+/* Do NOT grayscale the strip design. Toggle affects the actual photos later. */
+.exact-strip-preview.bw-preview {
+  filter: drop-shadow(10px 10px 11px rgba(0, 0, 0, 0.18)) !important;
+}
+
+/* Arrows positioned like the real page */
+.exact-arrow {
+  top: 155px !important;
+  font-size: 42px !important;
+  color: #1f2937 !important;
+}
+
+.exact-left-arrow {
+  left: 142px !important;
+}
+
+.exact-right-arrow {
+  right: 142px !important;
+}
+
+/* Toggle moved lower so it does not overlap the screen */
+.exact-toggle-button {
+  top: 486px !important;
+  width: 74px !important;
+  height: 34px !important;
+  z-index: 5;
+}
+
+/* Add actual b&w / color labels */
+.exact-toggle-label {
+  position: absolute;
+  top: 493px;
+  font-family: "Quicksand", "Inter", Arial, sans-serif;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  z-index: 6;
+  user-select: none;
+  pointer-events: none;
+}
+
+.exact-toggle-label.bw-label {
+  left: calc(50% - 87px);
+}
+
+.exact-toggle-label.color-label {
+  left: calc(50% + 54px);
+}
+
+/* Bottom row spacing */
+.exact-bottom-row {
+  top: 565px !important;
+  width: 520px !important;
+  gap: 26px !important;
+}
+
+.exact-instructions {
+  width: 398px !important;
+}
+
+.exact-coin-wrap,
+.exact-coin-panel {
+  width: 74px !important;
+}
+
+/* Visible green start button */
+.exact-green-hotspot {
+  top: 23px !important;
+  left: 50% !important;
+  width: 17px !important;
+  height: 17px !important;
+  transform: translateX(-50%) !important;
+  border-radius: 50% !important;
+  border: 2.5px solid #3f5f52 !important;
+  background: #56d487 !important;
+  box-shadow: inset 0 0 1px rgba(0,0,0,.35) !important;
+  z-index: 10 !important;
+}
+
+.exact-green-hotspot:hover {
+  background: #3fcf76 !important;
+}
+
+.exact-green-hotspot:active {
+  background: #1f8f4f !important;
+  transform: translateX(-50%) scale(0.92) !important;
+}
+
+/* Keep page fitting nicely in browser */
+.exact-frame-page {
+  min-height: 735px !important;
+}
+
+@media (max-width: 700px) {
+  .exact-frame-stage {
+    width: 96vw !important;
+    height: 700px !important;
+  }
+
+  .exact-lightbox {
+    width: 455px !important;
+  }
+
+  .exact-screen-area {
+    top: 176px !important;
+    width: 390px !important;
+  }
+
+  .exact-screen {
+    width: 264px !important;
+  }
+
+  .exact-eye-level {
+    left: -1px !important;
+    width: 74px !important;
+  }
+
+  .exact-price {
+    right: 10px !important;
+    width: 60px !important;
+  }
+
+  .exact-strip-preview {
+    width: 52px !important;
+    height: 208px !important;
+  }
+
+  .exact-left-arrow {
+    left: 110px !important;
+  }
+
+  .exact-right-arrow {
+    right: 110px !important;
+  }
+
+  .exact-toggle-button {
+    top: 470px !important;
+  }
+
+  .exact-toggle-label {
+    top: 477px !important;
+    font-size: 12px !important;
+  }
+
+  .exact-toggle-label.bw-label {
+    left: calc(50% - 80px) !important;
+  }
+
+  .exact-toggle-label.color-label {
+    left: calc(50% + 48px) !important;
+  }
+
+  .exact-bottom-row {
+    top: 540px !important;
+    width: 94vw !important;
+    gap: 15px !important;
+  }
+
+  .exact-instructions {
+    width: 330px !important;
+  }
+
+  .exact-coin-wrap,
+  .exact-coin-panel {
+    width: 62px !important;
+  }
+
+  .exact-green-hotspot {
+    top: 19px !important;
+    width: 15px !important;
+    height: 15px !important;
+  }
+}
+
+
+/* FRAME PAGE ONLY: move price sticker + add vertical spacing */
+.exact-frame-stage {
+  height: 780px !important;
+}
+
+/* top sign slightly higher */
+.exact-lightbox {
+  top: 10px !important;
+}
+
+/* move the screen group a little down */
+.exact-screen-area {
+  top: 205px !important;
+}
+
+/* move $0/4pics farther right so it does not overlap */
+.exact-price {
+  top: 176px !important;
+  right: 12px !important;
+  width: 68px !important;
+}
+
+/* move toggle down so it has breathing room under the screen */
+.exact-toggle-button {
+  top: 530px !important;
+}
+
+.exact-toggle-label {
+  top: 537px !important;
+}
+
+/* move instructions + coin panel down */
+.exact-bottom-row {
+  top: 625px !important;
+}
+
+/* keep page from feeling cramped */
+.exact-frame-page {
+  min-height: 790px !important;
+}
+
+@media (max-width: 700px) {
+  .exact-frame-stage {
+    height: 735px !important;
+  }
+
+  .exact-screen-area {
+    top: 190px !important;
+  }
+
+  .exact-price {
+    right: -2px !important;
+  }
+
+  .exact-toggle-button {
+    top: 505px !important;
+  }
+
+  .exact-toggle-label {
+    top: 512px !important;
+  }
+
+  .exact-bottom-row {
+    top: 580px !important;
+  }
+}
+
+
+/* FRAME PAGE ONLY: put toggle + labels fully below the screen box */
+.exact-frame-stage {
+  height: 820px !important;
+}
+
+.exact-screen-area {
+  top: 200px !important;
+}
+
+/* Move toggle clearly below the drawn screen box */
+.exact-toggle-button {
+  top: 580px !important;
+  width: 74px !important;
+  height: 34px !important;
+  z-index: 5 !important;
+}
+
+.exact-toggle-label {
+  top: 590px !important;
+  font-family: "Quicksand", "Inter", Arial, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #111827 !important;
+}
+
+.exact-toggle-label.bw-label {
+  left: calc(50% - 100px) !important;
+}
+
+.exact-toggle-label.color-label {
+  left: calc(50% + 56px) !important;
+}
+
+/* Push instructions/coin panel down to keep spacing clean */
+.exact-bottom-row {
+  top: 650px !important;
+}
+
+/* Keep price sticker away from screen */
+.exact-price {
+  right: 0px !important;
+  top: 176px !important;
+}
+
+.exact-frame-page {
+  min-height: 830px !important;
+}
+
+@media (max-width: 700px) {
+  .exact-frame-stage {
+    height: 770px !important;
+  }
+
+  .exact-screen-area {
+    top: 190px !important;
+  }
+
+  .exact-toggle-button {
+    top: 530px !important;
+  }
+
+  .exact-toggle-label {
+    top: 538px !important;
+    font-size: 12px !important;
+  }
+
+  .exact-toggle-label.bw-label {
+    left: calc(50% - 80px) !important;
+  }
+
+  .exact-toggle-label.color-label {
+    left: calc(50% + 49px) !important;
+  }
+
+  .exact-bottom-row {
+    top: 610px !important;
+  }
+}
+
+
+/* EXACT PHOTO TAKING PAGE - added on top of Samreen's edited code */
+.exact-photo-page {
+  width: 100%;
+  min-height: 780px;
+}
+
+.exact-photo-stage {
+  position: relative;
+  width: min(720px, 92vw);
+  height: 760px;
+  margin: 0 auto;
+}
+
+.photo-lightbox {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  width: 500px;
+  max-width: 76vw;
+  transform: translateX(-50%);
+  user-select: none;
+  pointer-events: none;
+}
+
+.photo-main-area {
+  position: absolute;
+  top: 185px;
+  left: 50%;
+  width: 500px;
+  height: 330px;
+  transform: translateX(-50%);
+}
+
+.photo-eye-level {
+  position: absolute;
+  top: 65px;
+  left: 20px;
+  width: 82px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.photo-screen-wrap {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 260px;
+  height: 330px;
+  transform: translateX(-50%);
+}
+
+.photo-screen-img {
+  position: absolute;
+  inset: 0;
+  width: 260px;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+.photo-price {
+  position: absolute;
+  top: 175px;
+  right: 5px;
+  width: 68px;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Camera is hidden until the user clicks take photo */
+.photo-camera-box {
+  position: absolute;
+  top: 68px;
+  left: 50%;
+  width: 170px;
+  height: 108px;
+  transform: translateX(-50%);
+  border: 2px solid #1f2937;
+  background: #fff;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  z-index: 4;
+}
+
+.photo-camera-box.hidden-camera {
+  display: none;
+}
+
+.photo-camera-box video,
+.photo-camera-box #uploadPreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+/* Selfie preview looks normal/mirrored, but captured image stays correct */
+.photo-camera-box video.show {
+  display: block;
+  transform: scaleX(-1);
+}
+
+.photo-camera-box #uploadPreview.show {
+  display: block;
+}
+
+.exact-photo-controls {
+  position: absolute;
+  top: 112px;
+  left: 50%;
+  width: 170px;
+  transform: translateX(-50%);
+  display: grid;
+  gap: 15px;
+  z-index: 6;
+}
+
+.exact-photo-controls button,
+.exact-photo-controls label {
+  width: 170px;
+  height: 38px;
+  border: 2px solid #1f2937;
+  display: grid;
+  place-items: center;
+  font-family: "Quicksand", "Inter", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  background: #ffffff;
+  color: #111827;
+  cursor: pointer;
+}
+
+.exact-photo-controls button:hover,
+.exact-photo-controls label:hover {
+  background: #eef1f5;
+}
+
+.exact-photo-controls button:active,
+.exact-photo-controls label:active {
+  background: #d9dee8;
+}
+
+.exact-photo-controls label {
+  background: #111827;
+  color: #ffffff;
+}
+
+.exact-photo-controls label:hover {
+  background: #253044;
+}
+
+.exact-photo-controls input {
+  display: none;
+}
+
+.photo-toggle-area {
+  position: absolute;
+  top: 540px;
+  left: 50%;
+  width: 230px;
+  height: 36px;
+  transform: translateX(-50%);
+}
+
+.photo-toggle-button {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 74px;
+  height: 34px;
+  transform: translateX(-50%);
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.photo-toggle-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.photo-toggle-label {
+  position: absolute;
+  top: 8px;
+  font-family: "Quicksand", "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  line-height: 1;
+  user-select: none;
+}
+
+.photo-bw-label {
+  left: 14px;
+}
+
+.photo-color-label {
+  right: 8px;
+}
+
+.photo-bottom-row {
+  position: absolute;
+  top: 620px;
+  left: 50%;
+  width: 520px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 26px;
+  transform: translateX(-50%);
+}
+
+.photo-instructions {
+  width: 398px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.photo-coin-wrap {
+  position: relative;
+  width: 74px;
+}
+
+.photo-coin-panel {
+  width: 74px;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* red selected button only, no select label */
+.photo-red-button {
+  position: absolute;
+  top: 23px;
+  left: 50%;
+  width: 17px;
+  height: 17px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 2.5px solid #6b3f49;
+  background: #ff7f8b;
+  box-shadow: inset 0 0 1px rgba(0,0,0,.35);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Hide old photo page parts if any old classes are still present */
+.exact-photo-page .top-empty-sign,
+.exact-photo-page .main-select-area,
+.exact-photo-page .toggle-row,
+.exact-photo-page .instructions-and-select {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  .exact-photo-stage {
+    width: 96vw;
+    height: 735px;
+  }
+
+  .photo-lightbox {
+    width: 455px;
+  }
+
+  .photo-main-area {
+    top: 175px;
+    width: 390px;
+  }
+
+  .photo-screen-wrap,
+  .photo-screen-img {
+    width: 245px;
+  }
+
+  .photo-eye-level {
+    left: -2px;
+    width: 74px;
+  }
+
+  .photo-price {
+    right: -2px;
+    width: 60px;
+  }
+
+  .photo-camera-box {
+    width: 155px;
+    height: 98px;
+  }
+
+  .exact-photo-controls,
+  .exact-photo-controls button,
+  .exact-photo-controls label {
+    width: 155px;
+  }
+
+  .photo-toggle-area {
+    top: 505px;
+  }
+
+  .photo-bottom-row {
+    top: 585px;
+    width: 94vw;
+    gap: 15px;
+  }
+
+  .photo-instructions {
+    width: 330px;
+  }
+
+  .photo-coin-wrap,
+  .photo-coin-panel {
+    width: 62px;
+  }
+
+  .photo-red-button {
+    top: 19px;
+    width: 15px;
+    height: 15px;
+  }
+}
+
+
+/* SAFETY FIX: camera preview must not show behind buttons before take photo */
+.photo-camera-box.hidden-camera,
+#cameraBox.hidden-camera {
+  display: none !important;
+}
+
+
+/* PHOTO PAGE START FLOW FIX */
+/* After clicking take photo, hide the options and let the camera fill the screen area */
+.exact-photo-page.camera-ready .exact-photo-controls {
+  display: none !important;
+}
+
+.exact-photo-page.camera-ready .photo-camera-box {
+  display: grid !important;
+  top: 42px !important;
+  left: 50% !important;
+  width: 210px !important;
+  height: 260px !important;
+  transform: translateX(-50%) !important;
+  border: 2px solid #1f2937 !important;
+  z-index: 8 !important;
+}
+
+.exact-photo-page.camera-ready .photo-camera-box video.show,
+.exact-photo-page.camera-ready .photo-camera-box #uploadPreview.show {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Start label above the coin panel appears only after take photo is clicked */
+.photo-start-label {
+  position: absolute;
+  top: -31px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: "Quicksand", "Inter", Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #111827;
+  line-height: 1;
+  z-index: 12;
+}
+
+.hidden-start-label {
+  display: none !important;
+}
+
+/* Red button becomes a green start button after take photo is clicked */
+.photo-red-button {
+  pointer-events: none;
+}
+
+.photo-red-button.ready-start {
+  pointer-events: auto !important;
+  border: 2.5px solid #3f5f52 !important;
+  background: #56d487 !important;
+  cursor: pointer !important;
+}
+
+.photo-red-button.ready-start:hover {
+  background: #3fcf76 !important;
+}
+
+.photo-red-button.ready-start:active {
+  background: #1f8f4f !important;
+  transform: translateX(-50%) scale(0.92) !important;
+}
+
+.photo-red-button.ready-start:disabled {
+  opacity: 0.7;
+  cursor: default !important;
+}
+
+/* While countdown is running, keep buttons hidden and camera large */
+.exact-photo-page.taking-photos .exact-photo-controls {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  .exact-photo-page.camera-ready .photo-camera-box {
+    width: 198px !important;
+    height: 245px !important;
+    top: 40px !important;
+  }
+
+  .photo-start-label {
+    top: -28px;
+    font-size: 15px;
+  }
+}
+
+
+/* FINAL PHOTO PAGE CAMERA + COUNTDOWN FIX */
+/* Make camera fill the drawn screen area like the reference screenshot */
+.exact-photo-page.camera-ready .photo-camera-box {
+  top: 24px !important;
+  left: 50% !important;
+  width: 226px !important;
+  height: 320px !important;
+  transform: translateX(-50%) !important;
+  border: 2px solid #1f2937 !important;
+  background: #ffffff !important;
+  z-index: 8 !important;
+}
+
+/* Let the video fully cover that tall screen shape */
+.exact-photo-page.camera-ready .photo-camera-box video.show,
+.exact-photo-page.camera-ready .photo-camera-box #uploadPreview.show {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Countdown is now clean: only 3, 2, 1 */
+.countdown {
+  font-family: "Quicksand", "Inter", Arial, sans-serif !important;
+  font-size: 64px !important;
+  font-weight: 600 !important;
+  color: white !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8) !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 700px) {
+  .exact-photo-page.camera-ready .photo-camera-box {
+    top: 24px !important;
+    width: 210px !important;
+    height: 300px !important;
+  }
+
+  .countdown {
+    font-size: 56px !important;
+  }
+}
+
+
+/* FIX WHITE GAP UNDER CAMERA: force the video to fill the full camera box */
+.exact-photo-page.camera-ready .photo-camera-box {
+  position: absolute !important;
+  overflow: hidden !important;
+  background: transparent !important;
+}
+
+/* This is the important part: video is stretched to the full box area */
+.exact-photo-page.camera-ready .photo-camera-box video,
+.exact-photo-page.camera-ready .photo-camera-box video.show {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: scaleX(-1) !important;
+}
+
+/* If an uploaded preview is showing, make it fill the same way */
+.exact-photo-page.camera-ready .photo-camera-box #uploadPreview,
+.exact-photo-page.camera-ready .photo-camera-box #uploadPreview.show {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* Keep countdown above the video */
+.exact-photo-page.camera-ready .countdown {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 20 !important;
+}
+
+
+/* DELIVERY PAGE FINAL RESIZE/FIX */
+/* Matches the size/spacing of previous pages better */
+.exact-delivery-page {
+  width: 100% !important;
+  min-height: 720px !important;
+}
+
+.delivery-stage {
+  position: relative;
+  width: min(360px, 92vw) !important;
+  height: 680px !important;
+  margin: 0 auto !important;
+}
+
+/* Timer box: smaller and separated from holder */
+.delivery-timer-wrap {
+  position: absolute !important;
+  top: 5px !important;
+  left: 50% !important;
+  width: 150px !important;
+  transform: translateX(-50%) !important;
+  z-index: 4 !important;
+}
+
+.delivery-timer-img {
+  width: 100% !important;
+  display: block !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+.delivery-timer-text {
+  position: absolute !important;
+  top: 48px !important;
+  left: 50% !important;
+  width: 138px !important;
+  transform: translateX(-50%) !important;
+  text-align: center !important;
+  font-family: "Quicksand", "Inter", Arial, sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  line-height: 1.08 !important;
+  color: #1f2937 !important;
+  letter-spacing: .2px !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+/* Holder/machine with clear gap under timer */
+.delivery-pickup-wrap {
+  position: absolute !important;
+  top: 175px !important;
+  left: 50% !important;
+  width: 170px !important;
+  transform: translateX(-50%) !important;
+  z-index: 3 !important;
+}
+
+.delivery-pickup-img {
+  position: relative !important;
+  width: 100% !important;
+  display: block !important;
+  z-index: 5 !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+/* This window is behind the transparent/black holder image */
+.delivery-strip-window {
+  position: absolute !important;
+  top: 58px !important;
+  left: 50% !important;
+  width: 88px !important;
+  height: 300px !important;
+  transform: translateX(-50%) !important;
+  overflow: hidden !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+/* Bigger strip so it fills the holder properly */
+.delivery-strip-window canvas {
+  width: 82px !important;
+  height: auto !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: -340px !important;
+  transform: translateX(-50%) rotate(-2deg) !important;
+  transition: top 3s ease-in-out !important;
+  z-index: 2 !important;
+}
+
+.delivery-strip-window canvas.slide-down {
+  top: 5px !important;
+}
+
+/* Smaller button, under all boxes, with proportional space below */
+.exact-pickup-btn {
+  position: absolute !important;
+  left: 50% !important;
+  bottom: 18px !important;
+  width: 200px !important;
+  max-width: 82vw !important;
+  height: 34px !important;
+  transform: translateX(-50%) !important;
+  background: #f7f8fa !important;
+  border: 2px solid #1f2937 !important;
+  color: #1f2937 !important;
+  font-family: "Quicksand", "Inter", Arial, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  z-index: 10 !important;
+}
+
+.exact-pickup-btn:hover {
+  background: #e9edf3 !important;
+}
+
+.exact-pickup-btn:active {
+  background: #d9dee8 !important;
+}
+
+/* Hide old delivery drawing if any old markup/styles remain */
+.exact-delivery-page .delivery-wrap,
+.exact-delivery-page .delivery-sign,
+.exact-delivery-page .delivery-machine {
+  display: none !important;
+}
+
+/* Keep Samreen's working camera fit values */
+.exact-photo-page.camera-ready .photo-camera-box {
+  top: 25px !important;
+  left: 50% !important;
+  width: 210px !important;
+  height: 280px !important;
+  transform: translateX(-50%) !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  border: 2px solid #1f2937 !important;
+}
+
+/* Keep video filling the camera box */
+.exact-photo-page.camera-ready .photo-camera-box video,
+.exact-photo-page.camera-ready .photo-camera-box video.show {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: scaleX(-1) !important;
+}
+
+.exact-photo-page.camera-ready .photo-camera-box #uploadPreview {
+  display: none !important;
+}
+
+.exact-photo-page.camera-ready .photo-camera-box #uploadPreview.show {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+@media (max-width: 700px) {
+  .delivery-stage {
+    height: 650px !important;
+  }
+
+  .delivery-timer-wrap {
+    width: 178px !important;
+  }
+
+  .delivery-timer-text {
+    top: 44px !important;
+    font-size: 14px !important;
+  }
+
+  .delivery-pickup-wrap {
+    top: 196px !important;
+    width: 188px !important;
+  }
+
+  .delivery-strip-window {
+    top: 55px !important;
+    width: 84px !important;
+    height: 285px !important;
+  }
+
+  .delivery-strip-window canvas {
+    width: 78px !important;
+  }
+
+  .exact-pickup-btn {
+    bottom: 16px !important;
+    width: 270px !important;
+  }
+}
+
+
+/* FINAL PICKUP PAGE FIX - uploaded text/scissors assets + cleaner buttons */
+.exact-final-page {
+  min-height: 720px !important;
+}
+
+.exact-final-page .final-stage {
+  position: relative !important;
+  width: min(620px, 92vw) !important;
+  height: 650px !important;
+  margin: 28px auto 0 !important;
+}
+
+/* Photostrip placement */
+.exact-final-page .final-strip-zone {
+  position: absolute !important;
+  top: 72px !important;
+  left: 245px !important;
+  z-index: 2 !important;
+}
+
+.exact-final-page #finalCanvas {
+  width: 112px !important;
+  height: auto !important;
+  display: block !important;
+  filter: drop-shadow(9px 14px 10px rgba(0, 0, 0, 0.22)) !important;
+}
+
+/* Correct uploaded "your photostrip" image */
+.final-text-img {
+  position: absolute !important;
+  top: 42px !important;
+  left: 375px !important;
+  width: 155px !important;
+  height: auto !important;
+  z-index: 3 !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+/* Correct uploaded scissors image */
+.final-scissors-img {
+  position: absolute !important;
+  top: 430px !important;
+  left: 390px !important;
+  width: 85px !important;
+  height: auto !important;
+  z-index: 3 !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+/* Remove old typed text, arrow, tag me, and social icons */
+.exact-final-page .photostrip-note,
+.exact-final-page .note-arrow,
+.exact-final-page .tag-area,
+.exact-final-page .scissors,
+.tag-area,
+.tag-area *,
+.social-icons,
+.social-icons *,
+.tiktok-icon,
+.instagram-icon {
+  display: none !important;
+}
+
+/* Bottom buttons: thinner border like the reference */
+.exact-final-page .final-buttons {
+  position: absolute !important;
+  bottom: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  gap: 9px !important;
+  flex-wrap: nowrap !important;
+  z-index: 5 !important;
+}
+
+.exact-final-page .final-buttons button {
+  height: 34px !important;
+  min-width: 92px !important;
+  padding: 0 12px !important;
+  border: 2px solid #1f2937 !important;
+  background: #f7f8fa !important;
+  color: #1f2937 !important;
+  font-family: "Quicksand", "Inter", Arial, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+}
+
+.exact-final-page .final-buttons button:hover {
+  background: #e9edf3 !important;
+}
+
+.exact-final-page .final-buttons button:active {
+  background: #d9dee8 !important;
+}
+
+@media (max-width: 700px) {
+  .exact-final-page .final-stage {
+    width: 96vw !important;
+    height: 625px !important;
+  }
+
+  .exact-final-page .final-strip-zone {
+    top: 70px !important;
+    left: 43% !important;
+  }
+
+  .exact-final-page #finalCanvas {
+    width: 104px !important;
+  }
+
+  .final-text-img {
+    top: 40px !important;
+    left: 58% !important;
+    width: 135px !important;
+  }
+
+  .final-scissors-img {
+    top: 420px !important;
+    left: 57% !important;
+    width: 105px !important;
+  }
+
+  .exact-final-page .final-buttons {
+    bottom: 10px !important;
+    gap: 5px !important;
+  }
+
+  .exact-final-page .final-buttons button {
+    min-width: 72px !important;
+    height: 29px !important;
+    padding: 0 5px !important;
+    font-size: 12px !important;
+  }
+}
+
+
+/* CLICKABLE SCISSORS + INDIVIDUAL PHOTO DOWNLOAD PAGE */
+.final-scissors-btn {
+  position: absolute !important;
+  top: 430px !important;
+  left: 390px !important;
+  width: 85px !important;
+  height: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  z-index: 6 !important;
+  cursor: pointer !important;
+}
+
+.final-scissors-btn .final-scissors-img {
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  pointer-events: none !important;
+}
+
+.final-scissors-btn:hover {
+  transform: scale(1.04);
+}
+
+.exact-single-page {
+  min-height: 720px !important;
+}
+
+.single-stage {
+  position: relative !important;
+  width: min(620px, 92vw) !important;
+  height: 650px !important;
+  margin: 28px auto 0 !important;
+}
+
+/* Uploaded "click to download" image */
+.download-click-img {
+  position: absolute !important;
+  top: 40px !important;
+  left: 380px !important;
+  width: 170px !important;
+  height: auto !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+/* The separated individual photos */
+.single-photo-stack {
+  position: absolute !important;
+  top: 72px !important;
+  left: 245px !important;
+  width: 112px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.single-photo-btn {
+  width: 112px !important;
+  height: 84px !important;
+  padding: 0 !important;
+  border: 3px solid #111827 !important;
+  background: transparent !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  display: block !important;
+}
+
+.single-photo-btn:hover {
+  transform: scale(1.025);
+}
+
+.single-photo-btn canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+}
+
+/* Uploaded back image */
+.back-to-strip-btn {
+  position: absolute !important;
+  top: 420px !important;
+  left: 390px !important;
+  width: 110px !important;
+  height: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  z-index: 5 !important;
+}
+
+.back-to-strip-btn img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  pointer-events: none !important;
+}
+
+.back-to-strip-btn:hover {
+  transform: scale(1.04);
+}
+
+/* Make sure no tag/social section shows on the final download page */
+.exact-single-page .tag-area,
+.exact-single-page .social-icons,
+.exact-single-page .tiktok-icon,
+.exact-single-page .instagram-icon {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  .final-scissors-btn {
+    top: 420px !important;
+    left: 57% !important;
+    width: 85px !important;
+  }
+
+  .single-stage {
+    width: 96vw !important;
+    height: 625px !important;
+  }
+
+  .download-click-img {
+    top: 38px !important;
+    left: 58% !important;
+    width: 145px !important;
+  }
+
+  .single-photo-stack {
+    top: 70px !important;
+    left: 43% !important;
+    width: 104px !important;
+    gap: 9px !important;
+  }
+
+  .single-photo-btn {
+    width: 104px !important;
+    height: 78px !important;
+  }
+
+  .back-to-strip-btn {
+    top: 400px !important;
+    left: 57% !important;
+    width: 95px !important;
+  }
+}
+
+.single-final-buttons {
+  position: absolute !important;
+  bottom: 10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  gap: 9px !important;
+  flex-wrap: nowrap !important;
+  z-index: 5 !important;
+}
+
+.single-final-buttons button {
+  height: 34px !important;
+  min-width: 92px !important;
+  padding: 0 12px !important;
+  border: 2px solid #1f2937 !important;
+  background: #f7f8fa !important;
+  color: #1f2937 !important;
+  font-family: "Quicksand", "Inter", Arial, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+}
+
+.single-final-buttons button:hover {
+  background: #e9edf3 !important;
+}
+
+.single-final-buttons button:active {
+  background: #d9dee8 !important;
+}
+
+.single-final-buttons {
+  position: absolute !important;
+  bottom: 10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+  flex-wrap: nowrap !important;
+  width: auto !important;
+  z-index: 20 !important;
+}
+
+.single-final-buttons button {
+  width: auto !important;
+  min-width: 92px !important;
+  height: 34px !important;
+  padding: 0 12px !important;
+  border: 2px solid #1f2937 !important;
+  background: #f7f8fa !important;
+  color: #1f2937 !important;
+  font-family: "Quicksand", "Inter", Arial, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+}
+
+.single-final-buttons {
+  position: absolute !important;
+  top: 480px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+  flex-wrap: nowrap !important;
+  width: auto !important;
+  z-index: 20 !important;
+}
+
+.home-art-wrap {
+  overflow: hidden !important;
+}
+
+.home-bg-img {
+  transform: translateY(8px) scale(1.01) !important;
+}
+
+.home-art-wrap {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* covers the random line above the photobooth sign */
+.home-art-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: white;
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* HOME PAGE FEATURED STRIPS - uploaded real strip images */
+.home-featured-strips {
+  position: absolute !important;
+  left: 18.5% !important;
+  top: 37.4% !important;
+  width: 27.1% !important;
+  height: 10.3% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3.1% !important;
+  z-index: 6 !important;
+  pointer-events: none !important;
+}
+
+.home-featured-strips img {
+  height: 78% !important;
+  width: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.28)) !important;
+}
+
+.home-featured-strips img:nth-child(1) {
+  transform: rotate(-4deg);
+}
+
+.home-featured-strips img:nth-child(2) {
+  transform: rotate(2deg);
+}
+
+.home-featured-strips img:nth-child(3) {
+  transform: rotate(-2deg);
+}
+
+.home-featured-strips img:nth-child(4) {
+  transform: rotate(3deg);
+}
+
+.home-featured-strips img:nth-child(5) {
+  transform: rotate(-3deg);
+}
+
+/* keep old generated placeholder strips hidden, but allow the new featured images */
+.featured-photo-strip {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  .home-featured-strips {
+  position: absolute !important;
+  left: 10% !important;
+  top: 10% !important;
+  width: 29% !important;
+  height: 13.5% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 2.5% !important;
+  z-index: 6 !important;
+  pointer-events: none !important;
+  }
+
+.home-featured-strips img 
+  {
+  height: 120% !important;
+  width: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.28)) !important;
+  }
+}
+
+.home-featured-strips img {
+  height: 95% !important;
+  width: auto !important;
+  transform: scale(1.0) !important;
+}
+
+/* FINAL OVERRIDE: move featured strips */
+.home-art-wrap .home-featured-strips {
+  position: absolute !important;
+  left: 15% !important;
+  top: 30% !important;
+  width: 31% !important;
+  height: 14% !important;
+  z-index: 50 !important;
+}
+
+/* IN-SCREEN FOUR PHOTO UPLOAD GRID */
+/* This appears inside the same box where the camera appears. */
+
+.hidden-upload-grid {
+  display: none !important;
+}
+
+.exact-photo-page.upload-ready .exact-photo-controls {
+  display: none !important;
+}
+
+.exact-photo-page.upload-ready .photo-camera-box {
+  display: none !important;
+}
+
+.upload-grid-box {
+  position: absolute !important;
+  top: 25px !important;
+  left: 50% !important;
+  width: 210px !important;
+  height: 280px !important;
+  transform: translateX(-50%) !important;
+  z-index: 12 !important;
+
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-rows: 1fr 1fr !important;
+  gap: 10px !important;
+  padding: 12px !important;
+
+  background: #ffffff !important;
+  border: 2px solid #1f2937 !important;
+  overflow: visible !important;
+}
+
+.upload-slot {
+  position: relative !important;
+  border: 2px dashed #c9ced8 !important;
+  border-radius: 8px !important;
+  display: grid !important;
+  place-items: center !important;
+  text-align: center !important;
+  font-family: "Quicksand", "Inter", Arial, sans-serif !important;
+  color: #1f2937 !important;
+  font-size: 11px !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  background: #fff !important;
+}
+
+.upload-slot input {
+  display: none !important;
+}
+
+.upload-slot .plus {
+  font-size: 26px !important;
+  line-height: 1 !important;
+}
+
+.upload-slot-preview {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: none !important;
+}
+
+.upload-slot.has-image .plus,
+.upload-slot.has-image span:not(.plus) {
+  display: none !important;
+}
+
+.upload-slot.has-image .upload-slot-preview {
+  display: block !important;
+}
+
+/* done button sits just below the upload grid */
+.upload-grid-box .finish-upload-btn {
+  position: absolute !important;
+  left: 50% !important;
+  bottom: -46px !important;
+  transform: translateX(-50%) !important;
+  width: 150px !important;
+  height: 34px !important;
+  border: 2px solid #1f2937 !important;
+  background: #f7f8fa !important;
+  color: #1f2937 !important;
+  font-family: "Quicksand", "Inter", Arial, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+}
+
+.upload-grid-box .finish-upload-btn:hover {
+  background: #e9edf3 !important;
+}
+
+.upload-grid-box .finish-upload-btn:active {
+  background: #d9dee8 !important;
+}
+
+@media (max-width: 700px) {
+  .upload-grid-box {
+    top: 25px !important;
+    width: 200px !important;
+    height: 265px !important;
+    padding: 10px !important;
+    gap: 9px !important;
+  }
+
+  .upload-grid-box .finish-upload-btn {
+    bottom: -43px !important;
+    width: 140px !important;
+    height: 32px !important;
+    font-size: 13px !important;
+  }
+}
+
+/* FIX: do not show upload boxes until user clicks upload photo */
+.upload-grid-box.hidden-upload-grid {
+  display: none !important;
+}
+
+/* UPLOAD MODE: use the coin button as the print button */
+.exact-photo-page.upload-ready .photo-start-label {
+  display: block !important;
+  top: -31px !important;
+  font-family: "Quicksand", "Inter", Arial, sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  color: #111827 !important;
+}
+
+.exact-photo-page.upload-ready .photo-red-button {
+  pointer-events: auto !important;
+  border: 2.5px solid #3f5f52 !important;
+  background: #56d487 !important;
+  cursor: pointer !important;
+}
+
+.exact-photo-page.upload-ready .photo-red-button:hover {
+  background: #3fcf76 !important;
+}
+
+.exact-photo-page.upload-ready .photo-red-button:disabled {
+  opacity: 0.55 !important;
+  cursor: default !important;
+}
